@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hospital Militar Dr. Joaquín Castillo Duany - Deberes y Derechos de los Pacientes y Acompañantes</title>
+    <meta name="description" content="Portal de Deberes y Derechos de los Pacientes y Acompañantes del Hospital Militar Dr. Joaquín Castillo Duany. Transparencia, humanismo y calidad asistencial." />
+    <meta name="author" content="LD SmartLab" />
+    <style>
+        /* ===== VARIABLES (claro) ===== */
+        :root {
+            --bg: #f8f9fc;
+            --bg-card: #ffffff;
+            --bg-elevated: #f0f2f6;
+            --bg-section-alt: #f2f5fa;
+            --blue: #0d6efd;
+            --blue-dark: #0a58ca;
+            --blue-light: #e6f0ff;
+            --text: #1e293b;
+            --text-secondary: #475569;
+            --border: #dce1eb;
+            --shadow: 0 8px 25px rgba(0, 0, 0, .04);
+            --nav-bg: rgba(255, 255, 255, .92);
+            --hero-bg: linear-gradient(145deg, #e6f0ff 0%, #ffffff 70%);
+            --footer-bg: #f1f4f9;
+            --badge-bg: var(--blue-light);
+            --badge-color: var(--blue);
+            --card-icon-bg: var(--blue-light);
+            --card-icon-color: var(--blue);
+            --testimonial-quote: var(--blue);
+            --btn-outline-border: var(--border);
+            --btn-outline-hover-bg: var(--blue-light);
+            --btn-outline-hover-color: var(--blue);
+            --accordion-header-hover: var(--blue-light);
+            --input-bg: var(--bg-card);
+            --input-border: var(--border);
+            --tab-active-bg: var(--blue);
+            --tab-active-color: #fff;
+            --tab-hover-bg: var(--blue-light);
+            --tab-hover-color: var(--text);
+            --tab-border: var(--border);
+            --stat-bg: var(--bg-card);
+            --stat-border: var(--border);
+            --stat-number-color: var(--blue);
+            --gallery-border: var(--border);
+            --gallery-caption-bg: linear-gradient(transparent, rgba(0, 0, 0, .7));
+            --gallery-caption-color: #fff;
+            --footer-border: var(--border);
+            --footer-text: var(--text-secondary);
+            --pdf-btn-bg: var(--blue);
+            --pdf-btn-color: #fff;
+            --pdf-btn-hover-bg: var(--blue-dark);
+            --nav-shadow: none;
+        }
+
+        /* ===== VARIABLES (oscuro) ===== */
+        body.dark-mode {
+            --bg: #111827;
+            --bg-card: #1f2937;
+            --bg-elevated: #2d3748;
+            --bg-section-alt: #1a2332;
+            --text: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --border: #374151;
+            --shadow: 0 8px 25px rgba(0, 0, 0, .3);
+            --nav-bg: rgba(17, 24, 39, .92);
+            --hero-bg: linear-gradient(145deg, #0b1120 0%, #1f2937 70%);
+            --footer-bg: #0b1120;
+            --badge-bg: #1e3a5f;
+            --badge-color: #93bbfc;
+            --card-icon-bg: #1e3a5f;
+            --card-icon-color: #93bbfc;
+            --testimonial-quote: #60a5fa;
+            --btn-outline-border: #4b5563;
+            --btn-outline-hover-bg: #1e3a5f;
+            --btn-outline-hover-color: #93bbfc;
+            --accordion-header-hover: #2d3748;
+            --input-bg: #1f2937;
+            --input-border: #4b5563;
+            --tab-active-bg: #1e3a5f;
+            --tab-active-color: #f1f5f9;
+            --tab-hover-bg: #2d3748;
+            --tab-hover-color: #f1f5f9;
+            --tab-border: #4b5563;
+            --stat-bg: #1f2937;
+            --stat-border: #374151;
+            --stat-number-color: #60a5fa;
+            --gallery-border: #374151;
+            --gallery-caption-bg: linear-gradient(transparent, rgba(0, 0, 0, .85));
+            --gallery-caption-color: #f1f5f9;
+            --footer-border: #374151;
+            --footer-text: #9ca3af;
+            --pdf-btn-bg: #1e3a5f;
+            --pdf-btn-color: #f1f5f9;
+            --pdf-btn-hover-bg: #2d4a7a;
+            --nav-shadow: 0 4px 20px rgba(0, 0, 0, .4);
+        }
+
+        /* ===== RESET Y BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background .3s, color .3s;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--blue);
+            border-radius: 4px;
+        }
+
+        /* ===== NAVBAR ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--nav-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            transition: background .3s, border-color .3s, box-shadow .3s;
+            box-shadow: var(--nav-shadow);
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .logo {
+            font-weight: 800;
+            font-size: 1.1rem;
+            letter-spacing: -.5px;
+            color: var(--text);
+            flex: 1;
+        }
+        .logo span {
+            color: var(--blue);
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: .9rem;
+            font-weight: 500;
+            transition: color .3s;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--blue);
+            transition: width .3s;
+        }
+        .nav-links a:hover {
+            color: var(--text);
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.2rem 0.5rem;
+        }
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            transition: background .3s, border-color .3s, transform .2s;
+            flex-shrink: 0;
+        }
+        .theme-toggle:hover {
+            background: var(--bg-elevated);
+            transform: scale(1.05);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: var(--hero-bg);
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            transition: background .3s;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1.5" fill="%230d6efd" opacity=".08"/></svg>');
+            background-size: 50px 50px;
+            opacity: .6;
+            pointer-events: none;
+        }
+        body.dark-mode .hero::before {
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1.5" fill="%23ffffff" opacity=".06"/></svg>');
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+        .badge {
+            display: inline-block;
+            padding: .35rem 1.2rem;
+            border-radius: 50px;
+            background: var(--badge-bg);
+            color: var(--badge-color);
+            font-size: .75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid rgba(13, 110, 253, .2);
+            margin-bottom: 1.5rem;
+            transition: background .3s, color .3s;
+        }
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+            color: var(--text);
+        }
+        .hero h1 span {
+            color: var(--blue);
+        }
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: .9rem 2rem;
+            border-radius: var(--radius, 12px);
+            font-weight: 600;
+            font-size: .95rem;
+            text-decoration: none;
+            transition: background .3s, color .3s, border-color .3s, transform .2s, box-shadow .3s;
+            cursor: pointer;
+            border: none;
+            display: inline-block;
+        }
+        .btn-primary {
+            background: var(--blue);
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background: var(--blue-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(13, 110, 253, .3);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--btn-outline-border);
+        }
+        .btn-outline:hover {
+            border-color: var(--blue);
+            color: var(--btn-outline-hover-color);
+            background: var(--btn-outline-hover-bg);
+        }
+        .btn:disabled {
+            opacity: .6;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 5rem 2rem;
+            position: relative;
+            transition: background .3s;
+        }
+        #normativa {
+            background: var(--bg-section-alt);
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .section-header h2 {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+        .section-header h2 span {
+            color: var(--blue);
+        }
+        .section-header p {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+        .divider {
+            width: 60px;
+            height: 4px;
+            background: var(--blue);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* ===== CARDS ===== */
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius, 12px);
+            padding: 2rem;
+            transition: background .3s, border-color .3s, transform .3s, box-shadow .3s;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--blue), transparent);
+            opacity: 0;
+            transition: opacity .3s;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--blue);
+            box-shadow: var(--shadow);
+        }
+        .card:hover::before {
+            opacity: 1;
+        }
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--card-icon-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--card-icon-color);
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            border: 1px solid rgba(13, 110, 253, .15);
+            transition: background .3s, color .3s;
+        }
+        .card h3 {
+            font-size: 1.15rem;
+            margin-bottom: .6rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+        .card p {
+            color: var(--text-secondary);
+            font-size: .95rem;
+            line-height: 1.7;
+        }
+
+        /* ===== STATS ===== */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        .stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--stat-bg);
+            border-radius: var(--radius, 12px);
+            border: 1px solid var(--stat-border);
+            transition: background .3s, border-color .3s;
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--stat-number-color);
+            display: block;
+            transition: color .3s;
+        }
+        .stat-label {
+            font-size: .85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ===== TABS ===== */
+        .tabs {
+            display: flex;
+            gap: .5rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .tab {
+            padding: .7rem 1.5rem;
+            border-radius: 50px;
+            border: 1px solid var(--tab-border);
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: .9rem;
+            transition: background .3s, color .3s, border-color .3s;
+        }
+        .tab.active {
+            background: var(--tab-active-bg);
+            color: var(--tab-active-color);
+            border-color: var(--tab-active-bg);
+        }
+        .tab:hover:not(.active) {
+            border-color: var(--blue);
+            color: var(--tab-hover-color);
+            background: var(--tab-hover-bg);
+        }
+        .panel {
+            display: none;
+            animation: fadeIn .4s ease;
+        }
+        .panel.active {
+            display: block;
+        }
+
+        /* ===== ACCORDION ===== */
+        .accordion-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius, 12px);
+            margin-bottom: .8rem;
+            overflow: hidden;
+            transition: background .3s, border-color .3s;
+            box-shadow: var(--shadow);
+        }
+        .accordion-header {
+            padding: 1.2rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background .3s;
+            user-select: none;
+            color: var(--text);
+        }
+        .accordion-header:hover {
+            background: var(--accordion-header-hover);
+        }
+        .accordion-header span {
+            color: var(--blue);
+            font-weight: 800;
+            margin-right: .8rem;
+            font-size: 1.1rem;
+        }
+        .accordion-icon {
+            transition: transform .3s;
+            color: var(--text-secondary);
+        }
+        .accordion-item.open .accordion-icon {
+            transform: rotate(180deg);
+            color: var(--blue);
+        }
+        .accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .3s ease, padding .3s ease;
+            padding: 0 1.5rem;
+            color: var(--text-secondary);
+            font-size: .95rem;
+        }
+        .accordion-item.open .accordion-body {
+            max-height: 500px;
+            padding: 0 1.5rem 1.2rem;
+        }
+        .accordion-body ul {
+            margin-left: 1.2rem;
+        }
+        .accordion-body li {
+            margin-bottom: .4rem;
+        }
+
+        /* ===== GALLERY ===== */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        .gallery-item {
+            position: relative;
+            border-radius: var(--radius, 12px);
+            overflow: hidden;
+            border: 1px solid var(--gallery-border);
+            aspect-ratio: 16/10;
+            transition: border-color .3s;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .5s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            background: var(--gallery-caption-bg);
+            color: var(--gallery-caption-color);
+            font-weight: 600;
+            transition: background .3s, color .3s;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonial {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius, 12px);
+            padding: 2rem;
+            position: relative;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: background .3s, border-color .3s;
+        }
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+            font-size: 4rem;
+            color: var(--testimonial-quote);
+            opacity: .15;
+            line-height: 1;
+            font-family: serif;
+            transition: color .3s;
+        }
+        .testimonial p {
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+            padding-left: 1rem;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .author-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1rem;
+            color: #fff;
+            flex-shrink: 0;
+        }
+        .author-info h4 {
+            font-size: .95rem;
+            margin-bottom: .1rem;
+            color: var(--text);
+        }
+        .author-info span {
+            font-size: .8rem;
+            color: var(--text-secondary);
+        }
+
+        /* ===== CONTACT ===== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        @media(max-width:768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: .4rem;
+            font-size: .9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: .9rem 1rem;
+            background: var(--input-bg);
+            border: 1px solid var(--input-border);
+            border-radius: 8px;
+            color: var(--text);
+            font-family: inherit;
+            font-size: .95rem;
+            transition: background .3s, border-color .3s, color .3s;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(13, 110, 253, .1);
+        }
+        .form-group textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+        .contact-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+        .info-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            align-items: flex-start;
+        }
+        .info-icon {
+            color: var(--blue);
+            font-size: 1.2rem;
+            margin-top: .2rem;
+        }
+        .info-item div h4 {
+            font-size: .95rem;
+            margin-bottom: .2rem;
+            color: var(--text);
+        }
+        .info-item div p {
+            color: var(--text-secondary);
+            font-size: .9rem;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--footer-bg);
+            border-top: 1px solid var(--footer-border);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+            transition: background .3s, border-color .3s;
+        }
+        .footer-brand {
+            font-weight: 800;
+            font-size: 1.1rem;
+            margin-bottom: .5rem;
+            color: var(--text);
+        }
+        .footer-brand span {
+            color: var(--blue);
+        }
+        .footer-email {
+            color: var(--blue);
+            font-size: .9rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .footer-email:hover {
+            text-decoration: underline;
+        }
+        .footer-copy {
+            color: var(--footer-text);
+            font-size: .8rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--footer-border);
+            transition: color .3s, border-color .3s;
+        }
+
+        /* ===== REVEAL ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity .8s cubic-bezier(.4, 0, .2, 1), transform .8s cubic-bezier(.4, 0, .2, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media(max-width:768px) {
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                right: -100%;
+                width: 70%;
+                height: calc(100vh - 60px);
+                background: var(--bg-card);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-left: 1px solid var(--border);
+                transition: right .3s ease, background .3s;
+            }
+            .nav-links.open {
+                right: 0;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .hero {
+                padding: 7rem 1.5rem 3rem;
+            }
+            section {
+                padding: 3rem 1.5rem;
+            }
+            .nav-container {
+                padding: 0.8rem 1rem;
+            }
+            .logo {
+                font-size: 0.95rem;
+            }
+            .theme-toggle {
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== NAVBAR ===== -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">Hospital Militar <span> Dr. Joaquín Castillo Duany</span></div>
+
+            <!-- Botón modo oscuro/claro -->
+            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema" title="Cambiar tema">🌙</button>
+
+            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Menú">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio" onclick="closeMenu()">Inicio</a></li>
+                <li><a href="#hospital" onclick="closeMenu()">El Hospital</a></li>
+                <li><a href="#normativa" onclick="closeMenu()">Deberes y Derechos</a></li>
+                <li><a href="#galeria" onclick="closeMenu()">Galería</a></li>
+                <li><a href="#contacto" onclick="closeMenu()">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="inicio">
+        <div class="hero-content reveal">
+            <div class="badge">Portal Informativo</div>
+            <h1>Deberes y Derechos de los Pacientes y Acompañantes del <span>Hospital Militar</span> "Dr. Joaquín Castillo Duany"</h1>
+            <p>Compromiso con la transparencia, el humanismo y la calidad asistencial. Información clara para pacientes, familiares y acompañantes.</p>
+            <div class="btn-group">
+                <a href="#normativa" class="btn btn-primary">Consultar Normativa</a>
+                <a href="#hospital" class="btn btn-outline">Conocer el Hospital</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SOBRE EL HOSPITAL ===== -->
+    <section id="hospital">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Sobre el <span>Hospital</span></h2>
+                <div class="divider"></div>
+                <p>Fundado el 7 de enero de 1963, es un centro de referencia que brinda servicios de salud a militares, sus familiares y a la población civil del área de salud de Santiago de Cuba.</p>
+            </div>
+
+            <div class="grid grid-3 reveal">
+                <div class="card">
+                    <div class="card-icon">🎯</div>
+                    <h3>Misión</h3>
+                    <p>Garantizar una adecuada atención médica a la población santiaguera, brindando asistencia médica secundaria a militares, familiares y pacientes regionalizados con los más altos estándares de calidad.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔭</div>
+                    <h3>Visión</h3>
+                    <p>Ser un referente nacional en asistencia médica, docencia e investigación científica, manteniendo altos estándares de calidad y humanismo en cada servicio.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">❤️</div>
+                    <h3>Valores</h3>
+                    <p>Humanismo, sensibilidad, rigor, sentido de pertenencia y profesionalidad. Nos distinguimos por el compromiso y el cariño que proveemos a nuestros pacientes.</p>
+                </div>
+            </div>
+
+            <div class="stats reveal">
+                <div class="stat">
+                    <span class="stat-number">36</span>
+                    <span class="stat-label">Especialidades</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">54K+</span>
+                    <span class="stat-label">Habitantes Atendidos</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">24h</span>
+                    <span class="stat-label">Cirugía Endoscópica</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">1</span>
+                    <span class="stat-label">Oxigenación Hiperbárica (Región)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== NORMATIVA ===== -->
+    <section id="normativa">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Deberes y <span>Derechos</span></h2>
+                <div class="divider"></div>
+                <p>Información oficial para pacientes ingresados y acompañantes. Conozca sus responsabilidades y garantías dentro de nuestra institución.</p>
+            </div>
+
+            <div class="tabs reveal" id="normativaTabs">
+                <button class="tab active" data-tab="paciente" onclick="switchTab('paciente')">Deberes del Paciente</button>
+                <button class="tab" data-tab="derechos-acomp" onclick="switchTab('derechos-acomp')">Derechos del Acompañante</button>
+                <button class="tab" data-tab="deberes-acomp" onclick="switchTab('deberes-acomp')">Deberes del Acompañante</button>
+            </div>
+
+            <!-- Panel: Deberes del Paciente -->
+            <div class="panel active reveal" id="panel-paciente">
+                <p style="text-align:center;color:var(--text-secondary);margin-bottom:2rem;font-size:.95rem">Todo paciente ingresado tendrá el deber de:</p>
+                <div class="accordion">
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>1</span> Cumplir el reglamento y normas del hospital</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Respetar en todo momento las disposiciones internas establecidas por la institución para garantizar el orden y la convivencia.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>2</span> Guardar el orden y disciplina en la unidad</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Mantener una conducta apropiada que favorezca el ambiente de recuperación propio de un centro de salud.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>3</span> Hablar en voz baja</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Contribuir al silencio y descanso de los demás pacientes manteniendo un tono de voz moderado.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>4</span> Presentarse aseo al pase de visita médico</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Asearse y presentar una higiene personal adecuada durante las visitas médicas programadas.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>5</span> Permanecer en su cama y cumplir el reposo indicado</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Permanecer en su cama durante el pase de visita médico y cumplir estrictamente el reposo que le haya sido indicado.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>6</span> No abandonar la sala sin autorización</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Mantenerse en la sala y no abandonarla sin autorización de la enfermera y sin justificación determinada.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>7</span> Cumplir con los exámenes clínicos indicados</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Cumplir con los exámenes clínicos indicados para la toma de muestras o pruebas especiales que se le soliciten.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>8</span> No visitar la habitación de otros pacientes</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Respetar la privacidad y el espacio de los demás pacientes, evitando visitar otras habitaciones.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>9</span> No sentarse en cama de otro paciente</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Utilizar únicamente su propia cama y mobiliario asignado.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>10</span> No manipular el televisor sin autorización</div><span class="accordion-icon">▼</span></div><div class="accordion-body">No manipular los equipos de televisión sin la debida autorización del personal.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>11</span> Usar correctamente el pijama</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Portar adecuadamente la indumentaria de paciente durante toda su estancia hospitalaria.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>12</span> No introducir ropas, objetos u obsequios ni medios de recreación</div><span class="accordion-icon">▼</span></div><div class="accordion-body">No introducir al hospital ropas, objetos u obsequios, así como medios de recreación (radios, grabadoras, cámaras fotográficas, etc.).</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>13</span> No introducir bebidas alcohólicas ni literatura inadecuada</div><span class="accordion-icon">▼</span></div><div class="accordion-body">No introducir bebidas alcohólicas ni literatura subversiva o pornográfica a las instalaciones.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>14</span> Tratar con respeto a pacientes y personal</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Tratar con el debido respeto a otros pacientes y al personal de la unidad.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>15</span> No hacer ruidos innecesarios</div><span class="accordion-icon">▼</span></div><div class="accordion-body">No hacer ruidos innecesarios y respetar el descanso de otros pacientes en todo momento.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>16</span> No llevar prendas, objetos de valor o dinero</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Abstenerse de portar prendas, objetos de valor o dinero durante la hospitalización.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>17</span> Mantener higiene personal y del ambiente</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Mantener una higiene personal adecuada y contribuir a mantener la del ambiente hospitalario.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>18</span> Realizar el baño diario</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Realizar el baño diario sin afectar las actividades del pase de visita médico.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>19</span> Cuidar y conservar los recursos institucionales</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Cuidar y conservar los recursos que la institución pone a su disposición y no permitir que otro atente contra esto.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>20</span> Asistir a la asamblea de su sala</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Todo paciente tiene el deber, si las condiciones lo permiten, de asistir a la asamblea de su sala y plantear las dificultades que existen.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>21</span> No tener alimentos sólidos ni fumar en el servicio</div><span class="accordion-icon">▼</span></div><div class="accordion-body">No tener alimentos sólidos en su habitación ni fumar en el servicio; solo en el área destinada para el mismo.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>22</span> Acatar investigaciones e indicaciones terapéuticas</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Acatar las investigaciones e indicaciones terapéuticas prescritas por el equipo médico.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>23</span> Cooperar con la donación de sangre</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Cooperar con la donación de sangre cuando sea requerido para el sistema de salud.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>24</span> Valorar la autorización de donación de órganos</div><span class="accordion-icon">▼</span></div><div class="accordion-body">En el momento del ingreso debe valorar si está de acuerdo firmar la autorización de donación de órganos al hospital en caso de fallecimiento.</div></div>
+                </div>
+                <div style="text-align:center;margin-top:2rem">
+                    <a href="#" onclick="downloadPDF(); return false;" class="btn btn-outline pdf-download-btn">📄 Descargar Documento Completo (PDF)</a>
+                </div>
+            </div>
+
+            <!-- Panel: Derechos del Acompañante -->
+            <div class="panel reveal" id="panel-derechos-acomp">
+                <p style="text-align:center;color:var(--text-secondary);margin-bottom:2rem;font-size:.95rem">Todo acompañante tendrá los siguientes derechos:</p>
+                <div class="accordion">
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>1</span> Acompañar a su familiar</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Acompañar a su familiar a juicio del médico de asistencia.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>2</span> Autorización por indicación médica</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Se autoriza acompañante al paciente que no pueda valerse por sí mismo o por indicación médica específica.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>3</span> Recibir el pase de acompañante</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Recibir el pase de acompañante expedido por la enfermera de la sala o en la sección de admisión según cada momento estipulado:
+                            <ul><li>En el ingreso en su sala si el caso lo requiere.</li><li>Al día siguiente del ingreso si el médico de asistencia lo considera.</li><li>A la llegada del salón de operaciones en los pacientes quirúrgicos.</li></ul></div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>4</span> Autorización por el Jefe de Servicio</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Serán autorizados por el Jefe de Servicio mediante un modelo de PASE que durará a criterio del médico de asistencia. En los ingresos de urgencia, lo autorizará el Jefe de la Guardia Médica de forma provisional por 24 horas.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>5</span> Recibir alimentación en el hospital</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Recibir alimentación en el hospital cuando lo autorice el Jefe de servicio.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>6</span> Permanecer al lado del paciente</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Permanecer al lado del paciente durante su traslado de sala, visitas, investigaciones (si técnicamente es permisible), recreación y otros.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>7</span> Recibir información del estado del paciente</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Los acompañantes recibirán información del estado del paciente mediante la entrevista individual o colectiva con el médico de asistencia en el local de información en el horario de las 12:00-13:00 Hrs, excepto Terapia Intensiva que la brindará sin previa solicitud, de 09:00-09:30 Hrs y en el horario de visitas a la sala.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>8</span> Solicitar entrevistas al personal facultativo</div><span class="accordion-icon">▼</span></div><div class="accordion-body">La solicitud de entrevistas al personal facultativo se efectuará antes de las 08:00 hrs del día que se requiera, a través del departamento de información.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>9</span> Formular quejas o sugerencias</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Los acompañantes pueden formular cualquier queja o sugerencia que entiendan o ayude a mejorar el servicio.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>10</span> Servicio de cocina comedor</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Optarán por el servicio de cocina comedor los acompañantes que residan fuera del Municipio Stgo de Cuba y familiares de los soldados (la adquisición de la tarjeta será en el Comedor de 11:40 am a 12:00 m).</div></div>
+                </div>
+            </div>
+
+            <!-- Panel: Deberes del Acompañante -->
+            <div class="panel reveal" id="panel-deberes-acomp">
+                <p style="text-align:center;color:var(--text-secondary);margin-bottom:2rem;font-size:.95rem">Todo acompañante tendrá el deber de:</p>
+                <div class="accordion">
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>1</span> Cumplir el Reglamento de la institución</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Respetar y acatar todas las normas establecidas por el hospital.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>2</span> Guardar orden y disciplina</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Guardar el orden y la disciplina de la sala del área donde se encuentre.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>3</span> Mantener conducta de relación social adecuada</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Mantener una conducta de relación social adecuada para con los demás pacientes y sus acompañantes y personal de la institución.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>4</span> Permanecer al lado de su paciente</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Permanecer al lado de su paciente durante toda su estancia autorizada.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>5</span> Cumplir el horario de entrada y salida</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Cumplir el horario de entrada y salida que le autoriza su tarjeta de acompañante.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>6</span> Cambios en horarios fijos</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Los cambios de acompañante serán en horarios fijos garantizando la higiene y organización de su paciente.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>7</span> Horario de permanencia en sala</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Permanecerán en sala en el horario de 07:00 a 11:00 am. Los acompañantes que por indicación médica lo requieran debido al estado del familiar.
+                            <ul><li>Entrada a la Sala: 11:00 am</li><li>Salida de la Sala: 07:00 am</li></ul></div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>8</span> No introducir alimentos en el centro</div><span class="accordion-icon">▼</span></div><div class="accordion-body">No introducir alimentos en el centro hospitalario.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>9</span> Acatar orientaciones médicas o administrativas</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Acatar cualquier orientación médica o administrativa que se le informe de acuerdo con este reglamento.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>10</span> No usar ropas inadecuadas</div><span class="accordion-icon">▼</span></div><div class="accordion-body">No usar ropas inadecuadas en el hospital, como batas transparentes, short cortos, camiseta, chancletas o letreros subversivos en el vestuario.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>11</span> Solo un acompañante por paciente</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Se permitirá solo un acompañante por paciente.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>12</span> El Pase puede ser retirado</div><span class="accordion-icon">▼</span></div><div class="accordion-body">El Pase de Acompañante podrá ser retirado en caso de que no se cumplan las disposiciones que al respecto se disponen.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>13</span> No sentarse en las camas de los pacientes</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Los acompañantes no deben sentarse en las camas de los pacientes, ni en lugares no requeridos.</div></div>
+                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>14</span> No fumar en la institución</div><span class="accordion-icon">▼</span></div><div class="accordion-body">No fumar en la institución.</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GALERÍA ===== -->
+    <section id="galeria">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Galería <span>Institucional</span></h2>
+                <div class="divider"></div>
+                <p>Imágenes de nuestras instalaciones y servicios.</p>
+            </div>
+            <div class="gallery-grid reveal">
+                <!-- Imágenes de ejemplo (reemplazar con las reales) -->
+                <div class="gallery-item">
+                    <img src="data:image/jpeg;base64,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" alt="Hospital Militar" />
+                    <div class="gallery-caption">Hospital Militar</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="data:image/jpeg;base64,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" alt="Salas de hospitalización" />
+                    <div class="gallery-caption">Salas de hospitalización</div>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:2rem" class="reveal">
+                <p style="color:var(--text-secondary);font-size:.9rem;margin-bottom:1rem">Documento oficial con la normativa completa:</p>
+                <a href="#" onclick="downloadPDF(); return false;" class="btn btn-primary pdf-download-btn">📥 Descargar PDF Oficial</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIOS ===== -->
+    <section style="background:var(--bg-section-alt);">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Voces del <span>Hospital</span></h2>
+                <div class="divider"></div>
+                <p>Testimonios que reflejan la calidad humana y profesional de nuestra institución.</p>
+            </div>
+            <div class="grid grid-2 reveal">
+                <div class="testimonial">
+                    <p>El servicio de oxigenación hiperbárica del hospital me salvó la vida. La atención y el cariño del personal fueron increíbles. No tengo palabras para agradecer a todo el equipo de salud.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">P</div>
+                        <div class="author-info">
+                            <h4>Paciente beneficiado</h4>
+                            <span>Servicio de Oxigenación Hiperbárica</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p>Mi familia y yo recibimos un trato excepcional durante la hospitalización de mi padre. El personal demostró profesionalidad y mucho humanismo en cada momento.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">F</div>
+                        <div class="author-info">
+                            <h4>Familiar de paciente</h4>
+                            <span>Santiago de Cuba</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACTO ===== -->
+    <section id="contacto">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Contacto y <span>Sugerencias</span></h2>
+                <div class="divider"></div>
+                <p>Su opinión es importante para seguir mejorando. Envíenos sus sugerencias, preguntas o comentarios.</p>
+            </div>
+            <div class="contact-grid reveal">
+                <form onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="nombre">Nombre completo</label>
+                        <input type="text" id="nombre" required placeholder="Su nombre" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" required placeholder="correo@ejemplo.com" />
+                    </div>
+                    <div class="form-group">
+                        <label for="asunto">Asunto</label>
+                        <input type="text" id="asunto" required placeholder="Asunto del mensaje" />
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" required placeholder="Escriba su mensaje aquí..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width:100%">Enviar Mensaje</button>
+                </form>
+
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <div class="info-item">
+                        <div class="info-icon">📍</div>
+                        <div>
+                            <h4>Dirección</h4>
+                            <p>Santiago de Cuba, Cuba</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">🏥</div>
+                        <div>
+                            <h4>Hospital Militar</h4>
+                            <p>Dr. Joaquín Castillo Duany</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">🕐</div>
+                        <div>
+                            <h4>Horario de visitas</h4>
+                            <p>Según normativa institucional</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">🎖️</div>
+                        <div>
+                            <h4>Reconocimiento</h4>
+                            <p>Orden Carlos Juan Finlay (2022)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-brand">LD <span>SmartLab</span></div>
+        <a href="mailto:ldsmartlabmipc@outlook.com" class="footer-email">ldsmartlabmipc@outlook.com</a>
+        <p style="color:var(--footer-text);font-size:.85rem;max-width:500px;margin:0 auto;line-height:1.6">
+            Desarrollado como recurso informativo y educativo para el Hospital Militar "Dr. Joaquín Castillo Duany".
+            Reflejando el compromiso de la institución con la transparencia y la calidad humana.
+        </p>
+        <div class="footer-copy">
+            © 2026 Hospital Militar Dr. Joaquín Castillo Duany. Todos los derechos reservados.<br />
+            Diseñado por LD SmartLab.
+        </div>
+    </footer>
+
+    <!-- ===== LIBRERÍAS PDF ===== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js">
+    </script>
+
+    <script>
+        // ============================================================
+        //  MODO OSCURO / CLARO
+        // ============================================================
+        (function() {
+            const toggleBtn = document.getElementById('themeToggle');
+            const currentTheme = localStorage.getItem('theme') || 'light';
+
+            // Aplicar tema guardado
+            if (currentTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                toggleBtn.textContent = '☀️';
+            } else {
+                toggleBtn.textContent = '🌙';
+            }
+
+            toggleBtn.addEventListener('click', function() {
+                const isDark = document.body.classList.toggle('dark-mode');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                this.textContent = isDark ? '☀️' : '🌙';
+            });
+        })();
+
+        // ============================================================
+        //  FUNCIONES EXISTENTES (menú, tabs, acordeón, formulario, PDF)
+        // ============================================================
+
+        // Mobile menu
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('open');
+        }
+
+        function closeMenu() {
+            document.getElementById('navLinks').classList.remove('open');
+        }
+
+        // Tabs
+        function switchTab(id) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+            const tabBtn = document.querySelector(`.tab[data-tab="${id}"]`);
+            if (tabBtn) tabBtn.classList.add('active');
+            const panel = document.getElementById('panel-' + id);
+            if (panel) panel.classList.add('active');
+        }
+
+        // Accordion
+        function toggleAccordion(header) {
+            const item = header.parentElement;
+            const wasOpen = item.classList.contains('open');
+            // Cerrar todos en el mismo panel
+            const panel = item.closest('.panel');
+            if (panel) {
+                panel.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
+            }
+            if (!wasOpen) item.classList.add('open');
+        }
+
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: .1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Navbar shadow on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.style.boxShadow = '0 4px 20px rgba(0,0,0,.08)';
+            } else {
+                nav.style.boxShadow = 'var(--nav-shadow)';
+            }
+        });
+
+        // Form handler
+        function handleSubmit(e) {
+            e.preventDefault();
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const asunto = document.getElementById('asunto').value;
+            const mensaje = document.getElementById('mensaje').value;
+            const body = `Nombre: ${nombre}%0D%0ACorreo: ${email}%0D%0A%0D%0A${mensaje}`;
+            window.location.href =
+                `mailto:ldsmartlabmipc@outlook.com?subject=${encodeURIComponent(asunto)}&body=${body}`;
+            alert('Gracias por su mensaje. Se abrirá su cliente de correo para enviar la sugerencia.');
+            e.target.reset();
+        }
+
+        // ============================================================
+        //  GENERADOR DE PDF (con texto en negro sobre fondo blanco)
+        // ============================================================
+        async function downloadPDF() {
+            const btns = document.querySelectorAll('.pdf-download-btn');
+            btns.forEach(b => { b.textContent = 'Generando PDF...';
+                b.disabled = true; });
+
+            try {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF('p', 'mm', 'a4');
+
+                const secciones = [
+                    { id: 'paciente', titulo: 'Deberes del Paciente', intro: 'Todo paciente ingresado tendrá el deber de:' },
+                    { id: 'derechos-acomp', titulo: 'Derechos del Acompañante',
+                    intro: 'Todo acompañante tendrá los siguientes derechos:' },
+                    { id: 'deberes-acomp', titulo: 'Deberes del Acompañante',
+                    intro: 'Todo acompañante tendrá el deber de:' }
+                ];
+
+                for (let s = 0; s < secciones.length; s++) {
+                    const sec = secciones[s];
+                    const panel = document.getElementById('panel-' + sec.id);
+                    if (!panel) continue;
+
+                    const items = panel.querySelectorAll('.accordion-item');
+                    const rows = [];
+                    items.forEach(item => {
+                        const header = item.querySelector('.accordion-header div');
+                        const body = item.querySelector('.accordion-body');
+                        if (header && body) {
+                            const headerText = header.textContent.trim();
+                            const parts = headerText.match(/^(\d+)\s+(.+)$/);
+                            const num = parts ? parts[1] : '';
+                            const title = parts ? parts[2] : headerText;
+                            const bodyText = body.textContent.trim();
+                            rows.push({ numero: num, titulo: title, descripcion: bodyText });
+                        }
+                    });
+
+                    if (s > 0) doc.addPage();
+
+                    doc.setFontSize(20);
+                    doc.setTextColor(13, 110, 253);
+                    doc.text(sec.titulo, 14, 22);
+
+                    doc.setFontSize(11);
+                    doc.setTextColor(50, 50, 50);
+                    doc.text(sec.intro, 14, 32);
+
+                    const tableRows = rows.map(r => [r.numero, r.titulo, r.descripcion]);
+                    doc.autoTable({
+                        startY: 38,
+                        head: [
+                            ['N°', 'Título', 'Descripción']
+                        ],
+                        body: tableRows,
+                        theme: 'plain',
+                        headStyles: {
+                            fillColor: [13, 110, 253],
+                            textColor: [255, 255, 255],
+                            fontSize: 11,
+                            halign: 'center',
+                            fontStyle: 'bold'
+                        },
+                        styles: {
+                            fontSize: 10,
+                            textColor: [0, 0, 0],
+                            lineColor: [200, 200, 200],
+                            lineWidth: 0.1,
+                            cellPadding: 2.5,
+                            overflow: 'linebreak'
+                        },
+                        columnStyles: {
+                            0: { cellWidth: 10, halign: 'center' },
+                            1: { cellWidth: 50 },
+                            2: { cellWidth: 'auto' }
+                        },
+                        margin: { left: 14, right: 14 },
+                        tableWidth: 'auto'
+                    });
+                }
+
+                doc.save('Deberes_y_Derechos_Hospital_Castillo_Duany.pdf');
+                alert('✅ PDF generado correctamente con texto en negro y fondo blanco.');
+
+            } catch (error) {
+                console.error('Error en PDF:', error);
+                alert('❌ Ocurrió un error al generar el PDF. Revise la consola.');
+            } finally {
+                btns.forEach(b => {
+                    b.textContent = '📥 Descargar PDF Oficial';
+                    b.disabled = false;
+                });
+            }
+        }
+    </script>
+</body>
+</html>
