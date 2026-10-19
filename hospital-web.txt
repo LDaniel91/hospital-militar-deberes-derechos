@@ -1,0 +1,22 @@
+hospital-web/
+│
+├── index.html
+│
+├── css/
+│   ├── variables.css      ← variables de color (claro/oscuro)
+│   ├── base.css           ← reset, tipografía, scrollbar
+│   ├── layout.css         ← navbar, hero, sections, footer
+│   ├── components.css     ← cards, tabs, accordion, forms, botones
+│   └── main.css           ← importa los 4 anteriores
+│
+├── js/
+│   ├── theme.js           ← modo oscuro/claro
+│   ├── ui.js              ← menú, tabs, acordeón, scroll reveal
+│   ├── contact.js         ← formulario
+│   ├── pdf.js             ← generador de PDF
+│   └── main.js            ← importa/inicializa todo
+│
+├── assets/
+│   └── img/
+│
+└── README.md

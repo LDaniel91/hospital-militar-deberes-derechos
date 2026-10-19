@@ -1,0 +1,14 @@
+📁 hospital-web/
+│
+├── 📄 index.html
+│
+├── 📁 css/
+│   └── 🎨 styles.css
+│
+├── 📁 js/
+│   └── ⚙️ main.js
+│
+└── 📁 assets/
+    └── 📁 img/
+        ├── 🖼️ hospital.jpg
+        └── 🖼️ salas.jpg

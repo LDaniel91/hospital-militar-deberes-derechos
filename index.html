@@ -3,833 +3,36 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hospital Militar Dr. Joaquín Castillo Duany - Deberes y Derechos de los Pacientes y Acompañantes</title>
     <meta name="description" content="Portal de Deberes y Derechos de los Pacientes y Acompañantes del Hospital Militar Dr. Joaquín Castillo Duany. Transparencia, humanismo y calidad asistencial." />
     <meta name="author" content="LD SmartLab" />
-    <style>
-        /* ===== VARIABLES (claro) ===== */
-        :root {
-            --bg: #f8f9fc;
-            --bg-card: #ffffff;
-            --bg-elevated: #f0f2f6;
-            --bg-section-alt: #f2f5fa;
-            --blue: #0d6efd;
-            --blue-dark: #0a58ca;
-            --blue-light: #e6f0ff;
-            --text: #1e293b;
-            --text-secondary: #475569;
-            --border: #dce1eb;
-            --shadow: 0 8px 25px rgba(0, 0, 0, .04);
-            --nav-bg: rgba(255, 255, 255, .92);
-            --hero-bg: linear-gradient(145deg, #e6f0ff 0%, #ffffff 70%);
-            --footer-bg: #f1f4f9;
-            --badge-bg: var(--blue-light);
-            --badge-color: var(--blue);
-            --card-icon-bg: var(--blue-light);
-            --card-icon-color: var(--blue);
-            --testimonial-quote: var(--blue);
-            --btn-outline-border: var(--border);
-            --btn-outline-hover-bg: var(--blue-light);
-            --btn-outline-hover-color: var(--blue);
-            --accordion-header-hover: var(--blue-light);
-            --input-bg: var(--bg-card);
-            --input-border: var(--border);
-            --tab-active-bg: var(--blue);
-            --tab-active-color: #fff;
-            --tab-hover-bg: var(--blue-light);
-            --tab-hover-color: var(--text);
-            --tab-border: var(--border);
-            --stat-bg: var(--bg-card);
-            --stat-border: var(--border);
-            --stat-number-color: var(--blue);
-            --gallery-border: var(--border);
-            --gallery-caption-bg: linear-gradient(transparent, rgba(0, 0, 0, .7));
-            --gallery-caption-color: #fff;
-            --footer-border: var(--border);
-            --footer-text: var(--text-secondary);
-            --pdf-btn-bg: var(--blue);
-            --pdf-btn-color: #fff;
-            --pdf-btn-hover-bg: var(--blue-dark);
-            --nav-shadow: none;
-        }
-
-        /* ===== VARIABLES (oscuro) ===== */
-        body.dark-mode {
-            --bg: #111827;
-            --bg-card: #1f2937;
-            --bg-elevated: #2d3748;
-            --bg-section-alt: #1a2332;
-            --text: #f1f5f9;
-            --text-secondary: #cbd5e1;
-            --border: #374151;
-            --shadow: 0 8px 25px rgba(0, 0, 0, .3);
-            --nav-bg: rgba(17, 24, 39, .92);
-            --hero-bg: linear-gradient(145deg, #0b1120 0%, #1f2937 70%);
-            --footer-bg: #0b1120;
-            --badge-bg: #1e3a5f;
-            --badge-color: #93bbfc;
-            --card-icon-bg: #1e3a5f;
-            --card-icon-color: #93bbfc;
-            --testimonial-quote: #60a5fa;
-            --btn-outline-border: #4b5563;
-            --btn-outline-hover-bg: #1e3a5f;
-            --btn-outline-hover-color: #93bbfc;
-            --accordion-header-hover: #2d3748;
-            --input-bg: #1f2937;
-            --input-border: #4b5563;
-            --tab-active-bg: #1e3a5f;
-            --tab-active-color: #f1f5f9;
-            --tab-hover-bg: #2d3748;
-            --tab-hover-color: #f1f5f9;
-            --tab-border: #4b5563;
-            --stat-bg: #1f2937;
-            --stat-border: #374151;
-            --stat-number-color: #60a5fa;
-            --gallery-border: #374151;
-            --gallery-caption-bg: linear-gradient(transparent, rgba(0, 0, 0, .85));
-            --gallery-caption-color: #f1f5f9;
-            --footer-border: #374151;
-            --footer-text: #9ca3af;
-            --pdf-btn-bg: #1e3a5f;
-            --pdf-btn-color: #f1f5f9;
-            --pdf-btn-hover-bg: #2d4a7a;
-            --nav-shadow: 0 4px 20px rgba(0, 0, 0, .4);
-        }
-
-        /* ===== RESET Y BASE ===== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-            transition: background .3s, color .3s;
-        }
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--blue);
-            border-radius: 4px;
-        }
-
-        /* ===== NAVBAR ===== */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: var(--nav-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-            transition: background .3s, border-color .3s, box-shadow .3s;
-            box-shadow: var(--nav-shadow);
-        }
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 0.8rem;
-        }
-        .logo {
-            font-weight: 800;
-            font-size: 1.1rem;
-            letter-spacing: -.5px;
-            color: var(--text);
-            flex: 1;
-        }
-        .logo span {
-            color: var(--blue);
-        }
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: .9rem;
-            font-weight: 500;
-            transition: color .3s;
-            position: relative;
-        }
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--blue);
-            transition: width .3s;
-        }
-        .nav-links a:hover {
-            color: var(--text);
-        }
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text);
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0.2rem 0.5rem;
-        }
-        .theme-toggle {
-            background: none;
-            border: 1px solid var(--border);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 1.2rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text);
-            transition: background .3s, border-color .3s, transform .2s;
-            flex-shrink: 0;
-        }
-        .theme-toggle:hover {
-            background: var(--bg-elevated);
-            transform: scale(1.05);
-        }
-
-        /* ===== HERO ===== */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            background: var(--hero-bg);
-            padding: 8rem 2rem 4rem;
-            text-align: center;
-            transition: background .3s;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1.5" fill="%230d6efd" opacity=".08"/></svg>');
-            background-size: 50px 50px;
-            opacity: .6;
-            pointer-events: none;
-        }
-        body.dark-mode .hero::before {
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1.5" fill="%23ffffff" opacity=".06"/></svg>');
-        }
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-        }
-        .badge {
-            display: inline-block;
-            padding: .35rem 1.2rem;
-            border-radius: 50px;
-            background: var(--badge-bg);
-            color: var(--badge-color);
-            font-size: .75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 1px solid rgba(13, 110, 253, .2);
-            margin-bottom: 1.5rem;
-            transition: background .3s, color .3s;
-        }
-        .hero h1 {
-            font-size: clamp(2.2rem, 5vw, 3.8rem);
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            letter-spacing: -1px;
-            color: var(--text);
-        }
-        .hero h1 span {
-            color: var(--blue);
-        }
-        .hero p {
-            color: var(--text-secondary);
-            font-size: 1.15rem;
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
-        }
-        .btn-group {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .btn {
-            padding: .9rem 2rem;
-            border-radius: var(--radius, 12px);
-            font-weight: 600;
-            font-size: .95rem;
-            text-decoration: none;
-            transition: background .3s, color .3s, border-color .3s, transform .2s, box-shadow .3s;
-            cursor: pointer;
-            border: none;
-            display: inline-block;
-        }
-        .btn-primary {
-            background: var(--blue);
-            color: #fff;
-        }
-        .btn-primary:hover {
-            background: var(--blue-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(13, 110, 253, .3);
-        }
-        .btn-outline {
-            background: transparent;
-            color: var(--text);
-            border: 1px solid var(--btn-outline-border);
-        }
-        .btn-outline:hover {
-            border-color: var(--blue);
-            color: var(--btn-outline-hover-color);
-            background: var(--btn-outline-hover-bg);
-        }
-        .btn:disabled {
-            opacity: .6;
-            cursor: not-allowed;
-            transform: none !important;
-        }
-
-        /* ===== SECTIONS ===== */
-        section {
-            padding: 5rem 2rem;
-            position: relative;
-            transition: background .3s;
-        }
-        #normativa {
-            background: var(--bg-section-alt);
-        }
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-        .section-header h2 {
-            font-size: clamp(1.8rem, 4vw, 2.6rem);
-            font-weight: 800;
-            margin-bottom: 1rem;
-            color: var(--text);
-        }
-        .section-header h2 span {
-            color: var(--blue);
-        }
-        .section-header p {
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-            font-size: 1.05rem;
-        }
-        .divider {
-            width: 60px;
-            height: 4px;
-            background: var(--blue);
-            margin: 1rem auto;
-            border-radius: 2px;
-        }
-
-        /* ===== CARDS ===== */
-        .grid {
-            display: grid;
-            gap: 1.5rem;
-        }
-        .grid-3 {
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        }
-        .grid-2 {
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        }
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius, 12px);
-            padding: 2rem;
-            transition: background .3s, border-color .3s, transform .3s, box-shadow .3s;
-            position: relative;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--blue), transparent);
-            opacity: 0;
-            transition: opacity .3s;
-        }
-        .card:hover {
-            transform: translateY(-4px);
-            border-color: var(--blue);
-            box-shadow: var(--shadow);
-        }
-        .card:hover::before {
-            opacity: 1;
-        }
-        .card-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            background: var(--card-icon-bg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--card-icon-color);
-            font-size: 1.3rem;
-            margin-bottom: 1.2rem;
-            border: 1px solid rgba(13, 110, 253, .15);
-            transition: background .3s, color .3s;
-        }
-        .card h3 {
-            font-size: 1.15rem;
-            margin-bottom: .6rem;
-            font-weight: 700;
-            color: var(--text);
-        }
-        .card p {
-            color: var(--text-secondary);
-            font-size: .95rem;
-            line-height: 1.7;
-        }
-
-        /* ===== STATS ===== */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-        .stat {
-            text-align: center;
-            padding: 1.5rem;
-            background: var(--stat-bg);
-            border-radius: var(--radius, 12px);
-            border: 1px solid var(--stat-border);
-            transition: background .3s, border-color .3s;
-        }
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 900;
-            color: var(--stat-number-color);
-            display: block;
-            transition: color .3s;
-        }
-        .stat-label {
-            font-size: .85rem;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* ===== TABS ===== */
-        .tabs {
-            display: flex;
-            gap: .5rem;
-            justify-content: center;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-        .tab {
-            padding: .7rem 1.5rem;
-            border-radius: 50px;
-            border: 1px solid var(--tab-border);
-            background: transparent;
-            color: var(--text-secondary);
-            cursor: pointer;
-            font-weight: 600;
-            font-size: .9rem;
-            transition: background .3s, color .3s, border-color .3s;
-        }
-        .tab.active {
-            background: var(--tab-active-bg);
-            color: var(--tab-active-color);
-            border-color: var(--tab-active-bg);
-        }
-        .tab:hover:not(.active) {
-            border-color: var(--blue);
-            color: var(--tab-hover-color);
-            background: var(--tab-hover-bg);
-        }
-        .panel {
-            display: none;
-            animation: fadeIn .4s ease;
-        }
-        .panel.active {
-            display: block;
-        }
-
-        /* ===== ACCORDION ===== */
-        .accordion-item {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius, 12px);
-            margin-bottom: .8rem;
-            overflow: hidden;
-            transition: background .3s, border-color .3s;
-            box-shadow: var(--shadow);
-        }
-        .accordion-header {
-            padding: 1.2rem 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            transition: background .3s;
-            user-select: none;
-            color: var(--text);
-        }
-        .accordion-header:hover {
-            background: var(--accordion-header-hover);
-        }
-        .accordion-header span {
-            color: var(--blue);
-            font-weight: 800;
-            margin-right: .8rem;
-            font-size: 1.1rem;
-        }
-        .accordion-icon {
-            transition: transform .3s;
-            color: var(--text-secondary);
-        }
-        .accordion-item.open .accordion-icon {
-            transform: rotate(180deg);
-            color: var(--blue);
-        }
-        .accordion-body {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height .3s ease, padding .3s ease;
-            padding: 0 1.5rem;
-            color: var(--text-secondary);
-            font-size: .95rem;
-        }
-        .accordion-item.open .accordion-body {
-            max-height: 500px;
-            padding: 0 1.5rem 1.2rem;
-        }
-        .accordion-body ul {
-            margin-left: 1.2rem;
-        }
-        .accordion-body li {
-            margin-bottom: .4rem;
-        }
-
-        /* ===== GALLERY ===== */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1rem;
-        }
-        .gallery-item {
-            position: relative;
-            border-radius: var(--radius, 12px);
-            overflow: hidden;
-            border: 1px solid var(--gallery-border);
-            aspect-ratio: 16/10;
-            transition: border-color .3s;
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform .5s ease;
-        }
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-        .gallery-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 1.5rem;
-            background: var(--gallery-caption-bg);
-            color: var(--gallery-caption-color);
-            font-weight: 600;
-            transition: background .3s, color .3s;
-        }
-
-        /* ===== TESTIMONIALS ===== */
-        .testimonial {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius, 12px);
-            padding: 2rem;
-            position: relative;
-            margin-bottom: 1.5rem;
-            box-shadow: var(--shadow);
-            transition: background .3s, border-color .3s;
-        }
-        .testimonial::before {
-            content: '"';
-            position: absolute;
-            top: 1rem;
-            left: 1.5rem;
-            font-size: 4rem;
-            color: var(--testimonial-quote);
-            opacity: .15;
-            line-height: 1;
-            font-family: serif;
-            transition: color .3s;
-        }
-        .testimonial p {
-            font-style: italic;
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
-            padding-left: 1rem;
-        }
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        .author-avatar {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--blue), var(--blue-dark));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 1rem;
-            color: #fff;
-            flex-shrink: 0;
-        }
-        .author-info h4 {
-            font-size: .95rem;
-            margin-bottom: .1rem;
-            color: var(--text);
-        }
-        .author-info span {
-            font-size: .8rem;
-            color: var(--text-secondary);
-        }
-
-        /* ===== CONTACT ===== */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: start;
-        }
-        @media(max-width:768px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        .form-group {
-            margin-bottom: 1.2rem;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: .4rem;
-            font-size: .9rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-        }
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: .9rem 1rem;
-            background: var(--input-bg);
-            border: 1px solid var(--input-border);
-            border-radius: 8px;
-            color: var(--text);
-            font-family: inherit;
-            font-size: .95rem;
-            transition: background .3s, border-color .3s, color .3s;
-        }
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--blue);
-            box-shadow: 0 0 0 3px rgba(13, 110, 253, .1);
-        }
-        .form-group textarea {
-            min-height: 140px;
-            resize: vertical;
-        }
-        .contact-info h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            color: var(--text);
-        }
-        .info-item {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.2rem;
-            align-items: flex-start;
-        }
-        .info-icon {
-            color: var(--blue);
-            font-size: 1.2rem;
-            margin-top: .2rem;
-        }
-        .info-item div h4 {
-            font-size: .95rem;
-            margin-bottom: .2rem;
-            color: var(--text);
-        }
-        .info-item div p {
-            color: var(--text-secondary);
-            font-size: .9rem;
-        }
-
-        /* ===== FOOTER ===== */
-        footer {
-            background: var(--footer-bg);
-            border-top: 1px solid var(--footer-border);
-            padding: 3rem 2rem 2rem;
-            text-align: center;
-            transition: background .3s, border-color .3s;
-        }
-        .footer-brand {
-            font-weight: 800;
-            font-size: 1.1rem;
-            margin-bottom: .5rem;
-            color: var(--text);
-        }
-        .footer-brand span {
-            color: var(--blue);
-        }
-        .footer-email {
-            color: var(--blue);
-            font-size: .9rem;
-            margin-bottom: 1.5rem;
-            display: inline-block;
-            text-decoration: none;
-        }
-        .footer-email:hover {
-            text-decoration: underline;
-        }
-        .footer-copy {
-            color: var(--footer-text);
-            font-size: .8rem;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--footer-border);
-            transition: color .3s, border-color .3s;
-        }
-
-        /* ===== REVEAL ===== */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity .8s cubic-bezier(.4, 0, .2, 1), transform .8s cubic-bezier(.4, 0, .2, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ===== ANIMATIONS ===== */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media(max-width:768px) {
-            .nav-links {
-                position: fixed;
-                top: 60px;
-                right: -100%;
-                width: 70%;
-                height: calc(100vh - 60px);
-                background: var(--bg-card);
-                flex-direction: column;
-                padding: 2rem;
-                gap: 1.5rem;
-                border-left: 1px solid var(--border);
-                transition: right .3s ease, background .3s;
-            }
-            .nav-links.open {
-                right: 0;
-            }
-            .menu-toggle {
-                display: block;
-            }
-            .hero {
-                padding: 7rem 1.5rem 3rem;
-            }
-            section {
-                padding: 3rem 1.5rem;
-            }
-            .nav-container {
-                padding: 0.8rem 1rem;
-            }
-            .logo {
-                font-size: 0.95rem;
-            }
-            .theme-toggle {
-                width: 36px;
-                height: 36px;
-                font-size: 1rem;
-            }
-        }
-    </style>
+    <title>Hospital Militar Dr. Joaquín Castillo Duany - Deberes y Derechos de los Pacientes y Acompañantes</title>
+	
+    <!-- Estilos -->
+	<link rel="icon" type="image/jpeg" href="assets/img/logo-hme.jpg" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
     <!-- ===== NAVBAR ===== -->
     <nav id="navbar">
         <div class="nav-container">
-            <div class="logo">Hospital Militar <span> Dr. Joaquín Castillo Duany</span></div>
+            <div class="logo">Hospital Militar <span>Dr. Joaquín Castillo Duany</span></div>
+            <button class="theme-switch" id="themeToggle" title="Cambiar tema" aria-label="Cambiar tema">
+                    <span class="switch-track">
+                        <span class="switch-label">ON</span>
+                        <span class="switch-thumb"><i class="fas fa-moon"></i></span>
+                    </span>
+            </button>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menú">☰</button>
 
-            <!-- Botón modo oscuro/claro -->
-            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema" title="Cambiar tema">🌙</button>
-
-            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Menú">☰</button>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#inicio" onclick="closeMenu()">Inicio</a></li>
-                <li><a href="#hospital" onclick="closeMenu()">El Hospital</a></li>
-                <li><a href="#normativa" onclick="closeMenu()">Deberes y Derechos</a></li>
-                <li><a href="#galeria" onclick="closeMenu()">Galería</a></li>
-                <li><a href="#contacto" onclick="closeMenu()">Contacto</a></li>
+                <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li><a href="#hospital" class="nav-link">El Hospital</a></li>
+                <li><a href="#normativa" class="nav-link">Deberes y Derechos</a></li>
+                <li><a href="#galeria" class="nav-link">Galería</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
             </ul>
         </div>
     </nav>
@@ -843,8 +46,6 @@
             <div class="btn-group">
                 <a href="#normativa" class="btn btn-primary">Consultar Normativa</a>
                 <a href="#hospital" class="btn btn-outline">Conocer el Hospital</a>
-                <!-- Botón para precargar la página -->
-                <button onclick="window.location.reload();" class="btn btn-outline">🔄 Precargar página</button>
             </div>
         </div>
     </section>
@@ -877,22 +78,10 @@
             </div>
 
             <div class="stats reveal">
-                <div class="stat">
-                    <span class="stat-number">36</span>
-                    <span class="stat-label">Especialidades</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">54K+</span>
-                    <span class="stat-label">Habitantes Atendidos</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">24h</span>
-                    <span class="stat-label">Cirugía Endoscópica</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">1</span>
-                    <span class="stat-label">Oxigenación Hiperbárica (Región)</span>
-                </div>
+                <div class="stat"><span class="stat-number">36</span><span class="stat-label">Especialidades</span></div>
+                <div class="stat"><span class="stat-number">54K+</span><span class="stat-label">Habitantes Atendidos</span></div>
+                <div class="stat"><span class="stat-number">24h</span><span class="stat-label">Cirugía Endoscópica</span></div>
+                <div class="stat"><span class="stat-number">1</span><span class="stat-label">Oxigenación Hiperbárica (Región)</span></div>
             </div>
         </div>
     </section>
@@ -907,108 +96,108 @@
             </div>
 
             <div class="tabs reveal" id="normativaTabs">
-                <button class="tab active" data-tab="derechos-paciente" onclick="switchTab('derechos-paciente')">Derechos del Paciente</button>
-                <button class="tab" data-tab="deberes-paciente" onclick="switchTab('deberes-paciente')">Deberes del Paciente</button>
-                <button class="tab" data-tab="derechos-acomp" onclick="switchTab('derechos-acomp')">Derechos del Acompañante</button>
-                <button class="tab" data-tab="deberes-acomp" onclick="switchTab('deberes-acomp')">Deberes del Acompañante</button>
+                <button class="tab active" data-tab="derechos-paciente">Derechos del Paciente</button>
+                <button class="tab" data-tab="deberes-paciente">Deberes del Paciente</button>
+                <button class="tab" data-tab="derechos-acomp">Derechos del Acompañante</button>
+                <button class="tab" data-tab="deberes-acomp">Deberes del Acompañante</button>
             </div>
 
             <!-- Panel: Derechos del Paciente -->
             <div class="panel active reveal" id="panel-derechos-paciente">
-                <p style="text-align:center;color:var(--text-secondary);margin-bottom:2rem;font-size:.95rem">Todo paciente tendrá derecho a:</p>
+                <p class="panel-intro">Todo paciente tendrá derecho a:</p>
                 <div class="accordion">
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>1</span> Recibir asistencia médica y terapéutica</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Recibir la asistencia médica y terapéutica requerida para su estado de salud.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>2</span> Trato digno y decoroso</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Recibir en todo momento por el personal de la institución un trato digno y decoroso.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>3</span> Información al ingreso</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Ser informado al ingreso en el hospital sobre el servicio de hospitalización, sala y cama asignados, así como el reglamento interno dispuesto.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>4</span> Vestuario de cuerpo y cama</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Recibir planificadamente vestuario de cuerpo y de cama dos veces por semana. Si por las condiciones de su enfermedad o procederes ejecutados necesita una frecuencia mayor recibirá el servicio según la demanda.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>5</span> Jabón de baño</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Recibir media unidad de jabón de baño al momento del ingreso, y cada 7 días si la estadía es prolongada.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>6</span> Sistema de pase para acompañantes</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Recibir el sistema de pase para sus acompañantes si su estado de salud así lo requiere. La decisión será adoptada por el facultativo que presta asistencia médica. El jefe de servicio aprobará los pases ordinarios concebidos para 72 horas y el Vicedirector Asistencial los pases permanentes emitidos para 7 días. Con carácter excepcional se autorizarán hasta dos acompañantes. Pasadas las 04:00 PM si urge la presencia de un acompañante con el paciente de nuevo ingreso, el jefe de la dotación de guardia médica emitirá un pase provisional por 24 horas.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>7</span> Garantía para su higiene personal</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Recibir garantía plena para su higiene personal.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>8</span> Limpieza de su habitación</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Exigir que permanezca limpia y ordenada su habitación o cubículo, así como el servicio sanitario.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>9</span> Recibir objetos personales y flores</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Recibir de sus visitantes algunos objetos de uso personal no restringidos en el acápite de sus deberes, así como flores y bibliografías no relacionados con temas de culto o religión, ni actividad subversiva.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>10</span> Información a familiares</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Que sus familiares reciban información directamente del médico de asistencia sobre su estado de salud.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>11</span> Actividades de recreación</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Disfrutar de actividades de recreación autorizadas en el horario establecido.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>12</span> Respeto a su pudor y privacidad</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Exigir respeto a su pudor garantizándosele la privacidad requerida.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>13</span> Respeto por los horarios de descanso</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Solicitar respeto por los horarios de descanso establecidos.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>14</span> Información detallada sobre su tratamiento</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Recibir información detallada sobre su tratamiento médico, incluyendo el tipo de dieta prescripta por el facultativo.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>15</span> Autorizar procederes diagnósticos o terapéuticos</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Autorizar o no la realización de procederes diagnósticos o terapéuticos que impliquen un riesgo potencial para su vida.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>16</span> Expresar su grado de satisfacción</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Expresar su grado de satisfacción formulando quejas o sugerencias sobre los servicios recibidos al jefe de servicio, jefa de enfermería o Dpto. de Calidad.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>1</span> Recibir asistencia médica y terapéutica</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Recibir la asistencia médica y terapéutica requerida para su estado de salud.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>2</span> Trato digno y decoroso</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Recibir en todo momento por el personal de la institución un trato digno y decoroso.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>3</span> Información al ingreso</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Ser informado al ingreso en el hospital sobre el servicio de hospitalización, sala y cama asignados, así como el reglamento interno dispuesto.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>4</span> Vestuario de cuerpo y cama</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Recibir planificadamente vestuario de cuerpo y de cama dos veces por semana. Si por las condiciones de su enfermedad o procederes ejecutados necesita una frecuencia mayor recibirá el servicio según la demanda.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>5</span> Jabón de baño</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Recibir media unidad de jabón de baño al momento del ingreso, y cada 7 días si la estadía es prolongada.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>6</span> Sistema de pase para acompañantes</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Recibir el sistema de pase para sus acompañantes si su estado de salud así lo requiere. La decisión será adoptada por el facultativo que presta asistencia médica. El jefe de servicio aprobará los pases ordinarios concebidos para 72 horas y el Vicedirector Asistencial los pases permanentes emitidos para 7 días. Con carácter excepcional se autorizarán hasta dos acompañantes. Pasadas las 04:00 PM si urge la presencia de un acompañante con el paciente de nuevo ingreso, el jefe de la dotación de guardia médica emitirá un pase provisional por 24 horas.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>7</span> Garantía para su higiene personal</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Recibir garantía plena para su higiene personal.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>8</span> Limpieza de su habitación</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Exigir que permanezca limpia y ordenada su habitación o cubículo, así como el servicio sanitario.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>9</span> Recibir objetos personales y flores</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Recibir de sus visitantes algunos objetos de uso personal no restringidos en el acápite de sus deberes, así como flores y bibliografías no relacionados con temas de culto o religión, ni actividad subversiva.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>10</span> Información a familiares</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Que sus familiares reciban información directamente del médico de asistencia sobre su estado de salud.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>11</span> Actividades de recreación</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Disfrutar de actividades de recreación autorizadas en el horario establecido.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>12</span> Respeto a su pudor y privacidad</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Exigir respeto a su pudor garantizándosele la privacidad requerida.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>13</span> Respeto por los horarios de descanso</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Solicitar respeto por los horarios de descanso establecidos.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>14</span> Información detallada sobre su tratamiento</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Recibir información detallada sobre su tratamiento médico, incluyendo el tipo de dieta prescripta por el facultativo.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>15</span> Autorizar procederes diagnósticos o terapéuticos</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Autorizar o no la realización de procederes diagnósticos o terapéuticos que impliquen un riesgo potencial para su vida.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>16</span> Expresar su grado de satisfacción</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Expresar su grado de satisfacción formulando quejas o sugerencias sobre los servicios recibidos al jefe de servicio, jefa de enfermería o Dpto. de Calidad.</div></div>
                 </div>
             </div>
 
             <!-- Panel: Deberes del Paciente -->
             <div class="panel reveal" id="panel-deberes-paciente">
-                <p style="text-align:center;color:var(--text-secondary);margin-bottom:2rem;font-size:.95rem">Todo paciente tendrá el deber de:</p>
+                <p class="panel-intro">Todo paciente tendrá el deber de:</p>
                 <div class="accordion">
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>1</span> Cumplir el reglamento y normas del hospital</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Respetar en todo momento las disposiciones internas establecidas por la institución para garantizar el orden y la convivencia.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>2</span> Guardar el orden y disciplina en la unidad</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Mantener una conducta apropiada que favorezca el ambiente de recuperación propio de un centro de salud.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>3</span> Hablar en voz baja</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Contribuir al silencio y descanso de los demás pacientes manteniendo un tono de voz moderado.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>4</span> Presentarse aseo al pase de visita médico</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Asearse y presentar una higiene personal adecuada durante las visitas médicas programadas.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>5</span> Permanecer en su cama y cumplir el reposo indicado</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Permanecer en su cama durante el pase de visita médico y cumplir estrictamente el reposo que le haya sido indicado.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>6</span> No abandonar la sala sin autorización</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Mantenerse en la sala y no abandonarla sin autorización de la enfermera y sin justificación determinada.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>7</span> Cumplir con los exámenes clínicos indicados</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Cumplir con los exámenes clínicos indicados para la toma de muestras o pruebas especiales que se le soliciten.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>8</span> No visitar la habitación de otros pacientes</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Respetar la privacidad y el espacio de los demás pacientes, evitando visitar otras habitaciones.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>9</span> No sentarse en cama de otro paciente</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Utilizar únicamente su propia cama y mobiliario asignado.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>10</span> No manipular el televisor sin autorización</div><span class="accordion-icon">▼</span></div><div class="accordion-body">No manipular los equipos de televisión sin la debida autorización del personal.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>11</span> Usar correctamente el pijama</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Portar adecuadamente la indumentaria de paciente durante toda su estancia hospitalaria.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>12</span> No introducir ropas, objetos u obsequios ni medios de recreación</div><span class="accordion-icon">▼</span></div><div class="accordion-body">No introducir al hospital ropas, objetos u obsequios, así como medios de recreación (radios, grabadoras, cámaras fotográficas, etc.).</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>13</span> No introducir bebidas alcohólicas ni literatura inadecuada</div><span class="accordion-icon">▼</span></div><div class="accordion-body">No introducir bebidas alcohólicas ni literatura subversiva o pornográfica a las instalaciones.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>14</span> Tratar con respeto a pacientes y personal</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Tratar con el debido respeto a otros pacientes y al personal de la unidad.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>15</span> No hacer ruidos innecesarios</div><span class="accordion-icon">▼</span></div><div class="accordion-body">No hacer ruidos innecesarios y respetar el descanso de otros pacientes en todo momento.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>16</span> No llevar prendas, objetos de valor o dinero</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Abstenerse de portar prendas, objetos de valor o dinero durante la hospitalización.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>17</span> Mantener higiene personal y del ambiente</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Mantener una higiene personal adecuada y contribuir a mantener la del ambiente hospitalario.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>18</span> Realizar el baño diario</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Realizar el baño diario sin afectar las actividades del pase de visita médico.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>19</span> Cuidar y conservar los recursos institucionales</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Cuidar y conservar los recursos que la institución pone a su disposición y no permitir que otro atente contra esto.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>20</span> Asistir a la asamblea de su sala</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Todo paciente tiene el deber, si las condiciones lo permiten, de asistir a la asamblea de su sala y plantear las dificultades que existen.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>21</span> No tener alimentos sólidos ni fumar en el servicio</div><span class="accordion-icon">▼</span></div><div class="accordion-body">No tener alimentos sólidos en su habitación ni fumar en el servicio; solo en el área destinada para el mismo.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>22</span> Acatar investigaciones e indicaciones terapéuticas</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Acatar las investigaciones e indicaciones terapéuticas prescritas por el equipo médico.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>23</span> Cooperar con la donación de sangre y valorar donación de órganos</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Cooperar con la donación de sangre cuando sea requerido para el sistema de salud. En el momento del ingreso debe valorar si está de acuerdo firmar la autorización de donación de órganos al hospital en caso de fallecimiento.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>1</span> Cumplir el reglamento y normas del hospital</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Respetar en todo momento las disposiciones internas establecidas por la institución para garantizar el orden y la convivencia.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>2</span> Guardar el orden y disciplina en la unidad</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Mantener una conducta apropiada que favorezca el ambiente de recuperación propio de un centro de salud.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>3</span> Hablar en voz baja</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Contribuir al silencio y descanso de los demás pacientes manteniendo un tono de voz moderado.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>4</span> Presentarse aseo al pase de visita médico</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Asearse y presentar una higiene personal adecuada durante las visitas médicas programadas.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>5</span> Permanecer en su cama y cumplir el reposo indicado</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Permanecer en su cama durante el pase de visita médico y cumplir estrictamente el reposo que le haya sido indicado.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>6</span> No abandonar la sala sin autorización</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Mantenerse en la sala y no abandonarla sin autorización de la enfermera y sin justificación determinada.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>7</span> Cumplir con los exámenes clínicos indicados</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Cumplir con los exámenes clínicos indicados para la toma de muestras o pruebas especiales que se le soliciten.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>8</span> No visitar la habitación de otros pacientes</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Respetar la privacidad y el espacio de los demás pacientes, evitando visitar otras habitaciones.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>9</span> No sentarse en cama de otro paciente</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Utilizar únicamente su propia cama y mobiliario asignado.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>10</span> No manipular el televisor sin autorización</div><span class="accordion-icon">▼</span></div><div class="accordion-body">No manipular los equipos de televisión sin la debida autorización del personal.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>11</span> Usar correctamente el pijama</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Portar adecuadamente la indumentaria de paciente durante toda su estancia hospitalaria.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>12</span> No introducir ropas, objetos u obsequios ni medios de recreación</div><span class="accordion-icon">▼</span></div><div class="accordion-body">No introducir al hospital ropas, objetos u obsequios, así como medios de recreación (radios, grabadoras, cámaras fotográficas, etc.).</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>13</span> No introducir bebidas alcohólicas ni literatura inadecuada</div><span class="accordion-icon">▼</span></div><div class="accordion-body">No introducir bebidas alcohólicas ni literatura subversiva o pornográfica a las instalaciones.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>14</span> Tratar con respeto a pacientes y personal</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Tratar con el debido respeto a otros pacientes y al personal de la unidad.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>15</span> No hacer ruidos innecesarios</div><span class="accordion-icon">▼</span></div><div class="accordion-body">No hacer ruidos innecesarios y respetar el descanso de otros pacientes en todo momento.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>16</span> No llevar prendas, objetos de valor o dinero</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Abstenerse de portar prendas, objetos de valor o dinero durante la hospitalización.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>17</span> Mantener higiene personal y del ambiente</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Mantener una higiene personal adecuada y contribuir a mantener la del ambiente hospitalario.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>18</span> Realizar el baño diario</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Realizar el baño diario sin afectar las actividades del pase de visita médico.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>19</span> Cuidar y conservar los recursos institucionales</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Cuidar y conservar los recursos que la institución pone a su disposición y no permitir que otro atente contra esto.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>20</span> Asistir a la asamblea de su sala</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Todo paciente tiene el deber, si las condiciones lo permiten, de asistir a la asamblea de su sala y plantear las dificultades que existen.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>21</span> No tener alimentos sólidos ni fumar en el servicio</div><span class="accordion-icon">▼</span></div><div class="accordion-body">No tener alimentos sólidos en su habitación ni fumar en el servicio; solo en el área destinada para el mismo.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>22</span> Acatar investigaciones e indicaciones terapéuticas</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Acatar las investigaciones e indicaciones terapéuticas prescritas por el equipo médico.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>23</span> Cooperar con la donación de sangre y valorar donación de órganos</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Cooperar con la donación de sangre cuando sea requerido para el sistema de salud. En el momento del ingreso debe valorar si está de acuerdo firmar la autorización de donación de órganos al hospital en caso de fallecimiento.</div></div>
                 </div>
             </div>
 
             <!-- Panel: Derechos del Acompañante -->
             <div class="panel reveal" id="panel-derechos-acomp">
-                <p style="text-align:center;color:var(--text-secondary);margin-bottom:2rem;font-size:.95rem">Todo acompañante tendrá los siguientes derechos:</p>
+                <p class="panel-intro">Todo acompañante tendrá los siguientes derechos:</p>
                 <div class="accordion">
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>1</span> Acompañar a su familiar</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Acompañar a su familiar a juicio del médico de asistencia.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>2</span> Autorización por indicación médica</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Se autoriza acompañante al paciente que no pueda valerse por sí mismo o por indicación médica específica.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>3</span> Recibir el pase de acompañante</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Recibir el pase de acompañante expedido por la enfermera de la sala o en la sección de admisión según cada momento estipulado:
-                            <ul><li>En el ingreso en su sala si el caso lo requiere.</li><li>Al día siguiente del ingreso si el médico de asistencia lo considera.</li><li>A la llegada del salón de operaciones en los pacientes quirúrgicos.</li></ul></div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>4</span> Autorización por el Jefe de Servicio</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Serán autorizados por el Jefe de Servicio mediante un modelo de PASE que durará a criterio del médico de asistencia. En los ingresos de urgencia, lo autorizará el Jefe de la Guardia Médica de forma provisional por 24 horas.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>5</span> Recibir alimentación en el hospital</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Recibir alimentación en el hospital cuando lo autorice el Jefe de servicio.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>6</span> Permanecer al lado del paciente</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Permanecer al lado del paciente durante su traslado de sala, visitas, investigaciones (si técnicamente es permisible), recreación y otros.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>7</span> Recibir información del estado del paciente</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Los acompañantes recibirán información del estado del paciente mediante la entrevista individual o colectiva con el médico de asistencia en el local de información en el horario de las 12:00-13:00 Hrs, excepto Terapia Intensiva que la brindará sin previa solicitud, de 09:00-09:30 Hrs y en el horario de visitas a la sala.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>8</span> Solicitar entrevistas al personal facultativo</div><span class="accordion-icon">▼</span></div><div class="accordion-body">La solicitud de entrevistas al personal facultativo se efectuará antes de las 08:00 hrs del día que se requiera, a través del departamento de información.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>9</span> Formular quejas o sugerencias</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Los acompañantes pueden formular cualquier queja o sugerencia que entiendan o ayude a mejorar el servicio.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>10</span> Servicio de cocina comedor</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Optarán por el servicio de cocina comedor los acompañantes que residan fuera del Municipio Stgo de Cuba y familiares de los soldados (la adquisición de la tarjeta será en el Comedor de 11:40 am a 12:00 m).</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>1</span> Acompañar a su familiar</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Acompañar a su familiar a juicio del médico de asistencia.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>2</span> Autorización por indicación médica</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Se autoriza acompañante al paciente que no pueda valerse por sí mismo o por indicación médica específica.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>3</span> Recibir el pase de acompañante</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Recibir el pase de acompañante expedido por la enfermera de la sala o en la sección de admisión según cada momento estipulado:
+                        <ul><li>En el ingreso en su sala si el caso lo requiere.</li><li>Al día siguiente del ingreso si el médico de asistencia lo considera.</li><li>A la llegada del salón de operaciones en los pacientes quirúrgicos.</li></ul></div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>4</span> Autorización por el Jefe de Servicio</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Serán autorizados por el Jefe de Servicio mediante un modelo de PASE que durará a criterio del médico de asistencia. En los ingresos de urgencia, lo autorizará el Jefe de la Guardia Médica de forma provisional por 24 horas.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>5</span> Recibir alimentación en el hospital</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Recibir alimentación en el hospital cuando lo autorice el Jefe de servicio.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>6</span> Permanecer al lado del paciente</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Permanecer al lado del paciente durante su traslado de sala, visitas, investigaciones (si técnicamente es permisible), recreación y otros.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>7</span> Recibir información del estado del paciente</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Los acompañantes recibirán información del estado del paciente mediante la entrevista individual o colectiva con el médico de asistencia en el local de información en el horario de las 12:00-13:00 Hrs, excepto Terapia Intensiva que la brindará sin previa solicitud, de 09:00-09:30 Hrs y en el horario de visitas a la sala.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>8</span> Solicitar entrevistas al personal facultativo</div><span class="accordion-icon">▼</span></div><div class="accordion-body">La solicitud de entrevistas al personal facultativo se efectuará antes de las 08:00 hrs del día que se requiera, a través del departamento de información.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>9</span> Formular quejas o sugerencias</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Los acompañantes pueden formular cualquier queja o sugerencia que entiendan o ayude a mejorar el servicio.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>10</span> Servicio de cocina comedor</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Optarán por el servicio de cocina comedor los acompañantes que residan fuera del Municipio Stgo de Cuba y familiares de los soldados (la adquisición de la tarjeta será en el Comedor de 11:40 am a 12:00 m).</div></div>
                 </div>
             </div>
 
             <!-- Panel: Deberes del Acompañante -->
             <div class="panel reveal" id="panel-deberes-acomp">
-                <p style="text-align:center;color:var(--text-secondary);margin-bottom:2rem;font-size:.95rem">Todo acompañante tendrá el deber de:</p>
+                <p class="panel-intro">Todo acompañante tendrá el deber de:</p>
                 <div class="accordion">
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>1</span> Cumplir el Reglamento de la institución</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Respetar y acatar todas las normas establecidas por el hospital.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>2</span> Guardar orden y disciplina</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Guardar el orden y la disciplina de la sala del área donde se encuentre.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>3</span> Mantener conducta de relación social adecuada</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Mantener una conducta de relación social adecuada para con los demás pacientes y sus acompañantes y personal de la institución.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>4</span> Permanecer al lado de su paciente</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Permanecer al lado de su paciente durante toda su estancia autorizada.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>5</span> Cumplir el horario de entrada y salida</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Cumplir el horario de entrada y salida que le autoriza su tarjeta de acompañante.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>6</span> Cambios en horarios fijos</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Los cambios de acompañante serán en horarios fijos garantizando la higiene y organización de su paciente.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>7</span> Horario de permanencia en sala</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Permanecerán en sala en el horario de 07:00 a 11:00 am. Los acompañantes que por indicación médica lo requieran debido al estado del familiar.
-                            <ul><li>Entrada a la Sala: 11:00 am</li><li>Salida de la Sala: 07:00 am</li></ul></div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>8</span> No introducir alimentos en el centro</div><span class="accordion-icon">▼</span></div><div class="accordion-body">No introducir alimentos en el centro hospitalario.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>9</span> Acatar orientaciones médicas o administrativas</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Acatar cualquier orientación médica o administrativa que se le informe de acuerdo con este reglamento.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>10</span> No usar ropas inadecuadas</div><span class="accordion-icon">▼</span></div><div class="accordion-body">No usar ropas inadecuadas en el hospital, como batas transparentes, short cortos, camiseta, chancletas o letreros subversivos en el vestuario.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>11</span> Solo un acompañante por paciente</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Se permitirá solo un acompañante por paciente.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>12</span> El Pase puede ser retirado</div><span class="accordion-icon">▼</span></div><div class="accordion-body">El Pase de Acompañante podrá ser retirado en caso de que no se cumplan las disposiciones que al respecto se disponen.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>13</span> No sentarse en las camas de los pacientes</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Los acompañantes no deben sentarse en las camas de los pacientes, ni en lugares no requeridos.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>14</span> No fumar en la institución</div><span class="accordion-icon">▼</span></div><div class="accordion-body">No fumar en la institución.</div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><div><span>15</span> Porte y aspecto adecuado</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Los acompañantes deben mantener una vestimenta adecuada, no utilizando prendas transparentes, shorts, licras cortas, ni deambular en chancletas; solo podrán usarlas dentro de la sala.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>1</span> Cumplir el Reglamento de la institución</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Respetar y acatar todas las normas establecidas por el hospital.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>2</span> Guardar orden y disciplina</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Guardar el orden y la disciplina de la sala del área donde se encuentre.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>3</span> Mantener conducta de relación social adecuada</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Mantener una conducta de relación social adecuada para con los demás pacientes y sus acompañantes y personal de la institución.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>4</span> Permanecer al lado de su paciente</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Permanecer al lado de su paciente durante toda su estancia autorizada.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>5</span> Cumplir el horario de entrada y salida</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Cumplir el horario de entrada y salida que le autoriza su tarjeta de acompañante.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>6</span> Cambios en horarios fijos</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Los cambios de acompañante serán en horarios fijos garantizando la higiene y organización de su paciente.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>7</span> Horario de permanencia en sala</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Permanecerán en sala en el horario de 07:00 a 11:00 am. Los acompañantes que por indicación médica lo requieran debido al estado del familiar.
+                        <ul><li>Entrada a la Sala: 11:00 am</li><li>Salida de la Sala: 07:00 am</li></ul></div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>8</span> No introducir alimentos en el centro</div><span class="accordion-icon">▼</span></div><div class="accordion-body">No introducir alimentos en el centro hospitalario.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>9</span> Acatar orientaciones médicas o administrativas</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Acatar cualquier orientación médica o administrativa que se le informe de acuerdo con este reglamento.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>10</span> No usar ropas inadecuadas</div><span class="accordion-icon">▼</span></div><div class="accordion-body">No usar ropas inadecuadas en el hospital, como batas transparentes, short cortos, camiseta, chancletas o letreros subversivos en el vestuario.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>11</span> Solo un acompañante por paciente</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Se permitirá solo un acompañante por paciente.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>12</span> El Pase puede ser retirado</div><span class="accordion-icon">▼</span></div><div class="accordion-body">El Pase de Acompañante podrá ser retirado en caso de que no se cumplan las disposiciones que al respecto se disponen.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>13</span> No sentarse en las camas de los pacientes</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Los acompañantes no deben sentarse en las camas de los pacientes, ni en lugares no requeridos.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>14</span> No fumar en la institución</div><span class="accordion-icon">▼</span></div><div class="accordion-body">No fumar en la institución.</div></div>
+                    <div class="accordion-item"><div class="accordion-header"><div><span>15</span> Porte y aspecto adecuado</div><span class="accordion-icon">▼</span></div><div class="accordion-body">Los acompañantes deben mantener una vestimenta adecuada, no utilizando prendas transparentes, shorts, licras cortas, ni deambular en chancletas; solo podrán usarlas dentro de la sala.</div></div>
                 </div>
             </div>
 
-            <div style="text-align:center;margin-top:2rem">
-                <a href="#" onclick="downloadPDF(); return false;" class="btn btn-outline pdf-download-btn">📄 Descargar Documento Completo (PDF)</a>
+            <div class="pdf-section">
+                <a href="#" id="downloadPdfBtn" class="btn btn-outline pdf-download-btn">📄 Descargar Documento Completo (PDF)</a>
             </div>
         </div>
     </section>
@@ -1023,27 +212,23 @@
             </div>
             <div class="gallery-grid reveal">
                 <div class="gallery-item">
-                    <img src="https://raw.githubusercontent.com/LDaniel91/hospital-militar-deberes-derechos/main/dronhme1.png"
-                         alt="Hospital Militar"
-                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <img src="assets/img/hospital.jpg" alt="Hospital Militar" />
                     <div class="gallery-caption">Hospital Militar</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://raw.githubusercontent.com/LDaniel91/hospital-militar-deberes-derechos/main/sala.JPG"
-                         alt="Salas de hospitalización"
-                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <img src="assets/img/salas.jpg" alt="Salas de hospitalización" />
                     <div class="gallery-caption">Salas de hospitalización</div>
                 </div>
             </div>
-            <div style="text-align:center;margin-top:2rem" class="reveal">
-                <p style="color:var(--text-secondary);font-size:.9rem;margin-bottom:1rem">Documento oficial con la normativa completa:</p>
-                <a href="#" onclick="downloadPDF(); return false;" class="btn btn-primary pdf-download-btn">📥 Descargar PDF Oficial</a>
+            <div class="pdf-section reveal">
+                <p class="pdf-note">Documento oficial con la normativa completa:</p>
+                <a href="#" class="btn btn-primary pdf-download-btn">📥 Descargar PDF Oficial</a>
             </div>
         </div>
     </section>
 
     <!-- ===== TESTIMONIOS ===== -->
-    <section style="background:var(--bg-section-alt);">
+    <section class="section-alt">
         <div class="container">
             <div class="section-header reveal">
                 <h2>Voces del <span>Hospital</span></h2>
@@ -1084,7 +269,7 @@
                 <p>Su opinión es importante para seguir mejorando. Envíenos sus sugerencias, preguntas o comentarios.</p>
             </div>
             <div class="contact-grid reveal">
-                <form onsubmit="handleSubmit(event)">
+                <form id="contactForm">
                     <div class="form-group">
                         <label for="nombre">Nombre completo</label>
                         <input type="text" id="nombre" required placeholder="Su nombre" />
@@ -1101,31 +286,22 @@
                         <label for="mensaje">Mensaje</label>
                         <textarea id="mensaje" required placeholder="Escriba su mensaje aquí..."></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width:100%">Enviar Mensaje</button>
+                    <button type="submit" class="btn btn-primary btn-block">Enviar Mensaje</button>
                 </form>
 
                 <div class="contact-info">
                     <h3>Información de Contacto</h3>
                     <div class="info-item">
                         <div class="info-icon">📍</div>
-                        <div>
-                            <h4>Dirección</h4>
-                            <p>Santiago de Cuba, Cuba</p>
-                        </div>
+                        <div><h4>Dirección</h4><p>Santiago de Cuba, Cuba</p></div>
                     </div>
                     <div class="info-item">
                         <div class="info-icon">🏥</div>
-                        <div>
-                            <h4>Hospital Militar</h4>
-                            <p>Dr. Joaquín Castillo Duany</p>
-                        </div>
+                        <div><h4>Hospital Militar</h4><p>Dr. Joaquín Castillo Duany</p></div>
                     </div>
                     <div class="info-item">
                         <div class="info-icon">🎖️</div>
-                        <div>
-                            <h4>Reconocimiento</h4>
-                            <p>Orden Carlos Juan Finlay (2022)</p>
-                        </div>
+                        <div><h4>Reconocimiento</h4><p>Orden Carlos Juan Finlay (2022)</p></div>
                     </div>
                 </div>
             </div>
@@ -1133,212 +309,66 @@
     </section>
 
     <!-- ===== FOOTER ===== -->
-    <footer>
-        <div class="footer-brand">LD <span>SmartLab</span></div>
-        <a href="mailto:ldsmartlabmipc@outlook.com" class="footer-email">ldsmartlabmipc@outlook.com</a>
-        <p style="color:var(--footer-text);font-size:.85rem;max-width:500px;margin:0 auto;line-height:1.6">
-            Desarrollado como recurso informativo y educativo para el Hospital Militar "Dr. Joaquín Castillo Duany".
-            Reflejando el compromiso de la institución con la transparencia y la calidad humana.
-        </p>
-        <div class="footer-copy">
-            © 2026 Hospital Militar Dr. Joaquín Castillo Duany. Todos los derechos reservados.<br />
-            Diseñado por LD SmartLab.
+    <footer>		
+		<!-- ===== DERECHOS DE AUTOR Y LICENCIA ===== -->
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p class="copyright-line">
+                    &copy; <span id="currentYear">2026</span> <strong>LD SmartLab</strong>. Todos los derechos reservados.
+                </p>
+                <p class="copyright-line">
+                    <i class="fas fa-id-card"></i> Titular: <strong>Luis Daniel Ramos Corona</strong>
+                    &nbsp;|&nbsp;
+                    <i class="fas fa-map-marker-alt"></i> Cuba
+                    &nbsp;|&nbsp;
+                    <i class="fas fa-envelope"></i> ldsmartlabmipc@outlook.com
+                </p>
+				<p class="footer-desc">
+                   Desarrollado como recurso informativo y educativo para el Hospital Militar "Dr. Joaquín Castillo Duany".
+                   Reflejando el compromiso de la institución con la transparencia y la calidad humana.
+                </p>
+                <p class="copyright-line small">
+                    <i class="fas fa-shield-alt"></i> <strong>Marca registrada</strong> &nbsp;|&nbsp;
+                    <i class="fas fa-copyright"></i> <strong>Propiedad Intelectual</strong> &nbsp;|&nbsp;
+                    <i class="fas fa-balance-scale"></i> <strong>Licencia de Uso Reservado</strong>
+                </p>
+                <p class="copyright-line small legal-text">
+                    Todos los contenidos de este sitio web —incluyendo textos, imágenes, logotipos, íconos, diseño gráfico,
+                    estructura, código fuente, hojas de estilo y scripts— son propiedad exclusiva de <strong>LD SmartLab</strong>
+                    y están protegidos por las leyes nacionales e internacionales de derechos de autor y propiedad intelectual.
+                    Queda <strong>estrictamente prohibida</strong> la reproducción, distribución, modificación, publicación,
+                    transmisión o cualquier uso total o parcial, por cualquier medio, sin la autorización previa y por escrito
+                    del titular. El uso no autorizado constituirá una violación de los derechos de autor y dará lugar a las
+                    acciones civiles y penales correspondientes.
+                </p>
+                <p class="copyright-line small">
+                    <i class="fas fa-file-contract"></i> Licencia: <strong>Uso Reservado — Todos los derechos reservados</strong>
+                    &nbsp;|&nbsp;
+                    <i class="fas fa-calendar-alt"></i> Última actualización: <span id="lastUpdate">2026</span>
+                </p>
+                <p class="copyright-line small">
+                    Desarrollado con <i class="fas fa-heart" style="color:var(--primary)"></i> por <strong>LD SmartLab</strong>
+                    &nbsp;|&nbsp;
+                    <a href="legal/politica-privacidad.html">Política de Privacidad</a>
+                    &nbsp;|&nbsp;
+                    <a href="legal/terminos-servicio.html">Términos de Servicio</a>
+                    &nbsp;|&nbsp;
+                    <a href="legal/aviso-legal.html">Aviso Legal</a>
+                </p>
+            </div>
         </div>
+		
+		
+		
+		
     </footer>
 
     <!-- ===== LIBRERÍAS PDF ===== -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js">
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
 
-    <script>
-        // ============================================================
-        //  MODO OSCURO / CLARO
-        // ============================================================
-        (function() {
-            const toggleBtn = document.getElementById('themeToggle');
-            const currentTheme = localStorage.getItem('theme') || 'light';
-
-            if (currentTheme === 'dark') {
-                document.body.classList.add('dark-mode');
-                toggleBtn.textContent = '☀️';
-            } else {
-                toggleBtn.textContent = '🌙';
-            }
-
-            toggleBtn.addEventListener('click', function() {
-                const isDark = document.body.classList.toggle('dark-mode');
-                localStorage.setItem('theme', isDark ? 'dark' : 'light');
-                this.textContent = isDark ? '☀️' : '🌙';
-            });
-        })();
-
-        // ============================================================
-        //  FUNCIONES
-        // ============================================================
-
-        // Mobile menu
-        function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('open');
-        }
-
-        function closeMenu() {
-            document.getElementById('navLinks').classList.remove('open');
-        }
-
-        // Tabs
-        function switchTab(id) {
-            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-            const tabBtn = document.querySelector(`.tab[data-tab="${id}"]`);
-            if (tabBtn) tabBtn.classList.add('active');
-            const panel = document.getElementById('panel-' + id);
-            if (panel) panel.classList.add('active');
-        }
-
-        // Accordion
-        function toggleAccordion(header) {
-            const item = header.parentElement;
-            const wasOpen = item.classList.contains('open');
-            const panel = item.closest('.panel');
-            if (panel) {
-                panel.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
-            }
-            if (!wasOpen) item.classList.add('open');
-        }
-
-        // Scroll reveal
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, { threshold: .1 });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        // Navbar shadow on scroll
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                nav.style.boxShadow = '0 4px 20px rgba(0,0,0,.08)';
-            } else {
-                nav.style.boxShadow = 'var(--nav-shadow)';
-            }
-        });
-
-        // Form handler
-        function handleSubmit(e) {
-            e.preventDefault();
-            const nombre = document.getElementById('nombre').value;
-            const email = document.getElementById('email').value;
-            const asunto = document.getElementById('asunto').value;
-            const mensaje = document.getElementById('mensaje').value;
-            const body = `Nombre: ${nombre}%0D%0ACorreo: ${email}%0D%0A%0D%0A${mensaje}`;
-            window.location.href =
-                `mailto:ldsmartlabmipc@outlook.com?subject=${encodeURIComponent(asunto)}&body=${body}`;
-            alert('Gracias por su mensaje. Se abrirá su cliente de correo para enviar la sugerencia.');
-            e.target.reset();
-        }
-
-        // ============================================================
-        //  GENERADOR DE PDF
-        // ============================================================
-        async function downloadPDF() {
-            const btns = document.querySelectorAll('.pdf-download-btn');
-            btns.forEach(b => { b.textContent = 'Generando PDF...';
-                b.disabled = true; });
-
-            try {
-                const { jsPDF } = window.jspdf;
-                const doc = new jsPDF('p', 'mm', 'a4');
-
-                const secciones = [
-                    { id: 'derechos-paciente', titulo: 'Derechos del Paciente', intro: 'Todo paciente tendrá derecho a:' },
-                    { id: 'deberes-paciente', titulo: 'Deberes del Paciente', intro: 'Todo paciente tendrá el deber de:' },
-                    { id: 'derechos-acomp', titulo: 'Derechos del Acompañante',
-                    intro: 'Todo acompañante tendrá los siguientes derechos:' },
-                    { id: 'deberes-acomp', titulo: 'Deberes del Acompañante',
-                    intro: 'Todo acompañante tendrá el deber de:' }
-                ];
-
-                for (let s = 0; s < secciones.length; s++) {
-                    const sec = secciones[s];
-                    const panel = document.getElementById('panel-' + sec.id);
-                    if (!panel) continue;
-
-                    const items = panel.querySelectorAll('.accordion-item');
-                    const rows = [];
-                    items.forEach(item => {
-                        const header = item.querySelector('.accordion-header div');
-                        const body = item.querySelector('.accordion-body');
-                        if (header && body) {
-                            const headerText = header.textContent.trim();
-                            const parts = headerText.match(/^(\d+)\s+(.+)$/);
-                            const num = parts ? parts[1] : '';
-                            const title = parts ? parts[2] : headerText;
-                            const bodyText = body.textContent.trim();
-                            rows.push({ numero: num, titulo: title, descripcion: bodyText });
-                        }
-                    });
-
-                    if (s > 0) doc.addPage();
-
-                    doc.setFontSize(20);
-                    doc.setTextColor(13, 110, 253);
-                    doc.text(sec.titulo, 14, 22);
-
-                    doc.setFontSize(11);
-                    doc.setTextColor(50, 50, 50);
-                    doc.text(sec.intro, 14, 32);
-
-                    const tableRows = rows.map(r => [r.numero, r.titulo, r.descripcion]);
-                    doc.autoTable({
-                        startY: 38,
-                        head: [
-                            ['N°', 'Título', 'Descripción']
-                        ],
-                        body: tableRows,
-                        theme: 'plain',
-                        headStyles: {
-                            fillColor: [13, 110, 253],
-                            textColor: [255, 255, 255],
-                            fontSize: 11,
-                            halign: 'center',
-                            fontStyle: 'bold'
-                        },
-                        styles: {
-                            fontSize: 10,
-                            textColor: [0, 0, 0],
-                            lineColor: [200, 200, 200],
-                            lineWidth: 0.1,
-                            cellPadding: 2.5,
-                            overflow: 'linebreak'
-                        },
-                        columnStyles: {
-                            0: { cellWidth: 10, halign: 'center' },
-                            1: { cellWidth: 50 },
-                            2: { cellWidth: 'auto' }
-                        },
-                        margin: { left: 14, right: 14 },
-                        tableWidth: 'auto'
-                    });
-                }
-
-                doc.save('Deberes_y_Derechos_Hospital_Castillo_Duany.pdf');
-                alert('✅ PDF generado correctamente con texto en negro y fondo blanco.');
-
-            } catch (error) {
-                console.error('Error en PDF:', error);
-                alert('❌ Ocurrió un error al generar el PDF. Revise la consola.');
-            } finally {
-                btns.forEach(b => {
-                    b.textContent = '📥 Descargar PDF Oficial';
-                    b.disabled = false;
-                });
-            }
-        }
-    </script>
+    <!-- Scripts propios -->
+    <script src="js/main.js"></script>
+    <script src="js/pdf.js"></script>
 </body>
 </html>
